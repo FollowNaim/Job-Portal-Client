@@ -8,7 +8,7 @@ function Categories() {
   return (
     <div>
       <div className="container mx-auto px-4">
-        <h4 className="text-3xl font-bold">Browse talent by category</h4>
+        <h4 className="text-3xl font-bold">Browse jobs by category</h4>
         <p className="py-4">Get some Inspirations from 1800+ skills</p>
         <div className="grid grid-cols-5 gap-8 mt-8">
           <Category count={8} img={c1} title={"Development & IT"} />

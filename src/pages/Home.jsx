@@ -2,10 +2,13 @@ import pay from "@/assets/hero/apple-pay.png";
 import freelancer from "@/assets/hero/freelancer.png";
 import job from "@/assets/hero/job.png";
 import support from "@/assets/hero/support.png";
+import bigcta from "@/assets/hero/big-cta.jpg";
 import Banner from "@/components/home/Banner";
 import Categories from "@/components/home/Categories";
 import Services from "@/components/home/Services";
 import SmallCard from "@/components/home/SmallCard";
+import { GoArrowUpRight } from "react-icons/go";
+import { Button } from "@/components/ui/button";
 
 function Home() {
   return (
@@ -50,6 +53,33 @@ function Home() {
       </div>
       <div className="mb-10 mt-20">
         <Services />
+      </div>
+      <div
+        className="bg-cover bg-no-repeat py-20 bg-center mb-10"
+        style={{ backgroundImage: `url('${bigcta}')` }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-sm">
+            <h3 className="text-3xl leading-snug font-bold font-dm">
+              With talented freelancers do more work.
+            </h3>
+            <div className="mt-6 flex items-center gap-6">
+              <Button
+                className="rounded-3xl py-6 flex items-center bg-green-800"
+                size="lg"
+              >
+                <GoArrowUpRight /> Find Work
+              </Button>
+              <Button
+                className="rounded-3xl py-6 bg-transparent flex items-center border-black hover:text-white hover:bg-black"
+                size="lg"
+                variant="outline"
+              >
+                <GoArrowUpRight /> Find Talent
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
