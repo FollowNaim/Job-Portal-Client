@@ -1,20 +1,31 @@
 import pay from "@/assets/hero/apple-pay.png";
+import bigcta from "@/assets/hero/big-cta.jpg";
 import freelancer from "@/assets/hero/freelancer.png";
 import job from "@/assets/hero/job.png";
 import support from "@/assets/hero/support.png";
-import bigcta from "@/assets/hero/big-cta.jpg";
 import Banner from "@/components/home/Banner";
 import Categories from "@/components/home/Categories";
 import Services from "@/components/home/Services";
 import SmallCard from "@/components/home/SmallCard";
-import { GoArrowUpRight } from "react-icons/go";
 import { Button } from "@/components/ui/button";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { GoArrowUpRight } from "react-icons/go";
 
 function Home() {
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ["jobs"],
+    queryFn: async () => {
+      const result = await axios.get("/jobs?limit=6");
+      return result;
+    },
+  });
+  console.log(data?.data);
+  if (isLoading) return <p>Loading...</p>;
   return (
     <div>
       <Banner />
-      <div className="px-4 mb-10">
+      <div className="px-4 mb-10 container mx-auto">
         <h4 className="text-3xl font-bold">Need something done?</h4>
         <p className="pt-2">Most viewed and all-time top-selling services</p>
         <div className="grid grid-cols-4 gap-4 mt-10">
@@ -52,7 +63,7 @@ function Home() {
         <Categories />
       </div>
       <div className="mb-10 mt-20">
-        <Services />
+        <Services jobs={data?.data} />
       </div>
       <div
         className="bg-cover bg-no-repeat py-20 bg-center mb-10"

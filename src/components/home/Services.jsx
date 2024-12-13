@@ -1,6 +1,6 @@
 import Service from "./Service";
 
-function Services() {
+function Services({ jobs }) {
   return (
     <div>
       <div className="container mx-auto px-4">
@@ -9,12 +9,9 @@ function Services() {
           Most viewed and all-time top-selling services
         </p>
         <div className="grid grid-cols-3 gap-6 mt-10">
-          <Service />
-          <Service />
-          <Service />
-          <Service />
-          <Service />
-          <Service />
+          {jobs?.map((job) => (
+            <Service key={job._id} job={job} />
+          ))}
         </div>
       </div>
     </div>

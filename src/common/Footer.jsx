@@ -1,3 +1,10 @@
+import footer1 from "@/assets/footer/footer1.jpg";
+import footer2 from "@/assets/footer/footer2.jpg";
+import footer3 from "@/assets/footer/footer3.jpg";
+import footer4 from "@/assets/footer/footer4.jpg";
+import footer5 from "@/assets/footer/footer5.jpg";
+import footer6 from "@/assets/footer/footer6.jpg";
+import pay from "@/assets/footer/payment.png";
 import {
   FaFacebook,
   FaInstagram,
@@ -32,6 +39,7 @@ function Footer() {
               </span>
             </p>
           </div>
+          <img className="mt-4" src={pay} alt="" />
         </div>
         <div className="md:col-span-2">
           <h4>Quick Links</h4>
@@ -117,6 +125,16 @@ function Footer() {
         </div>
         <div className="md:col-span-3">
           <h4>Our Instagram</h4>
+          <div className="grid grid-cols-3 gap-3 mt-6">
+            <img className="rounded-xl" src={footer1} alt="" />
+            <img className="rounded-xl" src={footer2} alt="" />
+            <img className="rounded-xl" src={footer3} alt="" />
+          </div>
+          <div className="grid grid-cols-3 gap-3 mt-3">
+            <img className="rounded-xl" src={footer4} alt="" />
+            <img className="rounded-xl" src={footer5} alt="" />
+            <img className="rounded-xl" src={footer6} alt="" />
+          </div>
         </div>
       </div>
       <div className="border-t border-border py-4 text-center">
