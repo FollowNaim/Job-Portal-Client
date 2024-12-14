@@ -32,7 +32,13 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/add-jobs",
-        element: <AddJob />,
+        element: (
+          // <PrivateRoutes>
+          // <ProtectedRoutes allowedRoles={["recruiter"]}>
+          <AddJob />
+          // </ProtectedRoutes>
+          // </PrivateRoutes>
+        ),
       },
       {
         path: "/jobs/apply/:id",

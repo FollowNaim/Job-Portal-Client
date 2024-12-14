@@ -23,7 +23,10 @@ function AuthProvider({ children }) {
   }, []);
   useEffect(() => {
     if (!user?.email) return;
-    axios.get(`/user?email=${user.email}`).then((data) => setDbUser(data.data));
+    axios.get(`/user?email=${user.email}`).then((data) => {
+      setDbUser(data.data);
+      console.log(data);
+    });
   }, [user]);
   const handleSignup = (email, pass) => {
     setLoading(true);

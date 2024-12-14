@@ -1,3 +1,11 @@
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Table,
   TableBody,
@@ -10,6 +18,7 @@ import {
 import { useAuth } from "@/hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { MoreHorizontal } from "lucide-react";
 
 function MyPostedJobs() {
   const { user } = useAuth();
@@ -38,6 +47,7 @@ function MyPostedJobs() {
             <TableHead>Category</TableHead>
             <TableHead>Status</TableHead>
             <TableHead className="">Salary</TableHead>
+            <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -53,6 +63,22 @@ function MyPostedJobs() {
               <TableCell>{job.status}</TableCell>
               <TableCell className="">
                 {job.salaryRange.min + " " + "/" + " " + job.salaryRange.max}
+              </TableCell>
+              <TableCell className="text-right">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="h-8 w-8 p-0">
+                      <span className="sr-only">Open menu</span>
+                      <MoreHorizontal className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                    <DropdownMenuItem>Update this Job</DropdownMenuItem>
+                    <DropdownMenuItem>View Job Details</DropdownMenuItem>
+                    <DropdownMenuItem>Delete Job</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </TableCell>
             </TableRow>
           ))}

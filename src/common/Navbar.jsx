@@ -15,21 +15,26 @@ function Navbar() {
             <Link to={"/"}>
               <li>Home</li>
             </Link>
-            <Link to={"/my-jobs"}>
-              <li>My Jobs</li>
-            </Link>
+
             <Link to={"/jobs"}>
               <li>All Jobs</li>
             </Link>
-            <Link to={"/my-posted-jobs"}>
-              <li>My Posted Jobs</li>
-            </Link>
-            {dbUser?.role === "recruiter" && (
+
+            {/* {dbUser?.role === "recruiter" && ( */}
+            <>
+              <Link to={"/my-posted-jobs"}>
+                <li>My Posted Jobs</li>
+              </Link>
               <Link to={"/add-jobs"}>
                 <li>Add a Job</li>
               </Link>
-            )}
-            {dbUser?.role === "job_seeker" && <li>Apply for Job</li>}
+            </>
+            {/* )} */}
+            {/* {dbUser?.role === "job_seeker" && ( */}
+            <Link to={"/my-jobs"}>
+              <li>My Jobs</li>
+            </Link>
+            {/* )} */}
           </ul>
         </div>
         <div>

@@ -55,7 +55,7 @@ function Service({ job }) {
         </CardHeader>
         <CardContent className="mt-auto">
           <CardDescription>
-            <p className="">{description}</p>
+            <p className="line-clamp-2">{description}</p>
             <div className="mt-4 flex items-center flex-wrap gap-2">
               {requirements.map((req, i) => (
                 <span
